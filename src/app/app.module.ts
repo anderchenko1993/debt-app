@@ -1,20 +1,28 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
+import { DebtListComponent } from './debt/debt-list/debt-list.component';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    routingComponents,
+    DebtListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    UserService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
