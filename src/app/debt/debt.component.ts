@@ -40,8 +40,9 @@ export class DebtComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.debt);
-    // this.debtService.save(this.debt);
+    this.debtService.save(this.debt).subscribe(result => {
+      console.log(result);
+    });
   }
 
 }

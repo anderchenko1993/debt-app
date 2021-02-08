@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { CurrencyMaskModule } from "ng2-currency-mask";
 
 import { DebtListComponent } from './debt/debt-list/debt-list.component';
 import { UserService } from './services/user.service';
@@ -23,6 +24,7 @@ import { DebtService } from './services/debt.service';
     NgbModule,
     HttpClientModule,
     FormsModule,
+    CurrencyMaskModule,
   ],
   providers: [
     UserService,
