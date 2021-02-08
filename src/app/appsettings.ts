@@ -1,1 +1,2 @@
-export const API_URL: string = 'http://localhost:8000';
+export const API_BACK: string = 'http://localhost:3001/debt-api';
+export const API_USERS: string = "https://jsonplaceholder.typicode.com/users";

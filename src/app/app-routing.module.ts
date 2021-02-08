@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { DebtComponent } from './debt/debt.component';
+import { DebtListComponent } from './debt/debt-list/debt-list.component';
 
 const routes: Routes = [
   { path: 'debt', component: DebtComponent },
@@ -12,4 +13,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [DebtComponent];
+export const routingComponents = [DebtComponent, DebtListComponent];

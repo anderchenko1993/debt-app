@@ -1,26 +1,32 @@
-<form>
+<form #form="ngForm" (submit)="onSubmit()" autocomplete="off">
     <div class="form-group">
-      <label for="formGroupExampleInput">Cliente</label>
-      <select class="custom-select" required>
-        <option value="">Selecione</option>
+      <label for="cliente">Cliente</label>
+      <select name="cliente" #cliente="ngModel" [(ngModel)]="debt.id_usuario" id="cliente" class="form-control" required>
+        <option value="" selected>Selecione</option>
         <option *ngFor="let user of users" [value]="user.id">{{user.name}}</option>
       </select>
+      <div class="validation-error" *ngIf="cliente.touched && !cliente.valid">Cliente é obrigatório.</div>
     </div>
 
     <div class="form-group">
-      <label for="formGroupExampleInput2">Motivo</label>
-      <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Ex: dívida cartão de crédito">
+      <label for="motivo">Motivo</label>
+      <input type="text" name="motivo" #motivo="ngModel" [(ngModel)]="debt.motivo" id="motivo" class="form-control" placeholder="Ex: dívida cartão de crédito" required>
+      <div class="validation-error" *ngIf="motivo.touched && !motivo.valid">Motivo é obrigatório.</div>
     </div>
 
     <div class="form-group">
-        <label for="formGroupExampleInput2">Valor</label>
-        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Ex: R$500,00">
+        <label for="valor">Valor</label>
+        <input type="text" name="valor" #valor="ngModel" [(ngModel)]="debt.valor" id="valor" class="form-control"placeholder="Ex: R$500,00" required>
+        <div class="validation-error" *ngIf="valor.touched && !valor.valid">Cliente é obrigatório.</div>
       </div>
 
       <div class="form-group">
-        <label for="formGroupExampleInput2">Data</label>
-        <input type="date" class="form-control" id="formGroupExampleInput2" placeholder="Ex: 02/02/2019">
+        <label for="data">Data</label>
+        <input type="date" name="data" #data="ngModel" [(ngModel)]="debt.data" id="data" class="form-control" placeholder="Ex: 02/02/2019" required>
+        <div class="validation-error" *ngIf="data.touched && !data.valid">Cliente é obrigatório.</div>
       </div>
 
-      <button type="submit" class="btn btn-primary">Salvar</button>
+      <button type="submit" class="btn btn-primary btn-block">SALVAR</button>
 </form>
+
+<app-debt-list></app-debt-list>

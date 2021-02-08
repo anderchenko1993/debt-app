@@ -5,8 +5,11 @@ import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
 import { DebtListComponent } from './debt/debt-list/debt-list.component';
 import { UserService } from './services/user.service';
+import { DebtService } from './services/debt.service';
 
 @NgModule({
   declarations: [
@@ -19,9 +22,11 @@ import { UserService } from './services/user.service';
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [
     UserService,
+    DebtService,
   ],
   bootstrap: [AppComponent]
 })
