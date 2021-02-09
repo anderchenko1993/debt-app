@@ -12,8 +12,8 @@ import { NgForm } from '@angular/forms';
 })
 export class DebtComponent implements OnInit {
 
-  users: any;
-  debt: Debt;
+  public users: any;
+  public debt: Debt;
 
   constructor(private userService: UserService, private debtService: DebtService) { 
     this.debt = {
@@ -35,10 +35,6 @@ export class DebtComponent implements OnInit {
     });
   }
 
-  resetForm(form: NgForm) {
-    form.resetForm();
-  }
-
   onSubmit() {
     const { id, name } = this.users.find((user: any) => user.id == this.debt.usuario.id);
     
@@ -46,7 +42,6 @@ export class DebtComponent implements OnInit {
 
     this.debtService.save(this.debt).subscribe(result => {
       alert('Cadastrado com sucesso!');
-      // this.resetForm();
     });
   }
 

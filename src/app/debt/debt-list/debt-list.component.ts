@@ -8,7 +8,7 @@ import { DebtService } from '../../services/debt.service';
 })
 export class DebtListComponent implements OnInit {
 
-  debts: any;
+  public debts: any;
 
   constructor(private debtService: DebtService) { }
 
@@ -20,6 +20,22 @@ export class DebtListComponent implements OnInit {
     await this.debtService.list().subscribe(data => {
       this.debts = data;
     });
+  }
+
+  onEdit(debt: Object) {
+    console.log(debt);
+  }
+
+  async onDelete(id: number) {
+    if(confirm('Você deseja excluir esta dívida?')) {
+      await this.debtService.delete(id).subscribe(result => {
+        alert('Deletado com sucesso!');
+      });
+    }
+  }
+
+  refreshList() {
+
   }
 
 }

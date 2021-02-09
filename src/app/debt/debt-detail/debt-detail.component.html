@@ -1,0 +1,26 @@
+<table class="table table-striped">
+    <tbody>
+        <tr>
+            <td>
+                <b>Cliente:</b> {{ debt?.usuario.name }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>Motivo:</b> {{ debt?.motivo }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>Valor:</b> {{ debt?.valor | currency: 'BRL' }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>Data:</b> {{ debt?.data | date: 'dd/MM/yyyy' }}
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <a [routerLink]="['/debts']" class="btn btn-primary right">Voltar</a> 

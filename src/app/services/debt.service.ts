@@ -7,6 +7,7 @@ import { API_BACK } from '../appsettings';
   providedIn: 'root'
 })
 export class DebtService {
+  
 
   constructor(private http: HttpClient) { }
 

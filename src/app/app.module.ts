@@ -11,12 +11,14 @@ import { CurrencyMaskModule } from "ng2-currency-mask";
 import { DebtListComponent } from './debt/debt-list/debt-list.component';
 import { UserService } from './services/user.service';
 import { DebtService } from './services/debt.service';
+import { DebtDetailComponent } from './debt/debt-detail/debt-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
     DebtListComponent,
+    DebtDetailComponent,
   ],
   imports: [
     BrowserModule,

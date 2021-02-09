@@ -1,20 +1,26 @@
 <table class="table">
   <thead>
-  <tr>
-    <th scope="col">Cliente</th>
-    <th scope="col">Valor</th>
-    <th scope="ol"></th>
-    <th scope="ol"></th>
-    <th scope="ol"></th>
-  </tr>
+    <tr>
+      <th scope="col">Cliente</th>
+      <th scope="col">Valor</th>
+      <th scope="ol"></th>
+      <th scope="ol"></th>
+      <th scope="ol"></th>
+    </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let debt of debts">
-    <td>{{ debt.usuario.name }}</td>
-    <td>R${{ debt.valor | number }}</td>
-    <td><i class="bi bi-eye-fill" title="Visualizar"></i></td>
-    <td><i class="bi bi-pencil-fill" title="Editar"></i></td>
-    <td><i class="bi bi-x-square-fill" title="Excluir"></i></td>
-  </tr>
+    <tr *ngFor="let debt of debts">
+      <td>{{ debt.usuario.name }}</td>
+      <td>R${{ debt.valor | number }}</td>
+      <td [routerLink]="['/debt/view/', debt._id]">
+        <i class="bi bi-eye-fill" title="Visualizar"></i>
+      </td>
+      <td (click)="onEdit(debt)">
+        <i class="bi bi-pencil-fill" title="Editar"></i>
+      </td>
+      <td (click)="onDelete(debt._id)">
+        <i class="bi bi-x-square-fill" title="Excluir"></i>
+      </td>
+    </tr>
   </tbody>
 </table>
