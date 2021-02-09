@@ -1,0 +1,32 @@
+table {
+    width: 45%;
+    margin-top: 20px;
+    float: right;
+}
+
+table thead {
+    background-color: #1976d2;
+    color: white;
+}
+
+table tbody tr:nth-child(odd) {
+    background-color: white;
+ }
+
+table tbody i {
+    /* color: #1976d2; */
+    font-size: 17px;
+    cursor: pointer;
+}
+
+table tbody .bi-eye-fill {
+    color: #1976d2;
+}
+
+table tbody .bi-pencil-fill {
+    color: #1976d2;
+}
+
+table tbody .bi-x-square-fill {
+    color: red;
+}

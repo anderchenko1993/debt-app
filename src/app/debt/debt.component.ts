@@ -18,7 +18,7 @@ export class DebtComponent implements OnInit {
   constructor(private userService: UserService, private debtService: DebtService) { 
     this.debt = {
       _id: null,
-      id_usuario: '',
+      usuario: { id: '', name: '' },
       motivo: '',
       data: '',
       valor: '', 
@@ -40,8 +40,13 @@ export class DebtComponent implements OnInit {
   }
 
   onSubmit() {
+    const { id, name } = this.users.find((user: any) => user.id == this.debt.usuario.id);
+    
+    this.debt.usuario = { id, name };
+
     this.debtService.save(this.debt).subscribe(result => {
-      console.log(result);
+      alert('Cadastrado com sucesso!');
+      // this.resetForm();
     });
   }
 
