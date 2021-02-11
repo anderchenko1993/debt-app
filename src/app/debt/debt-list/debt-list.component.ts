@@ -26,6 +26,7 @@ export class DebtListComponent implements OnInit {
     if(confirm('Você deseja excluir esta dívida?')) {
       await this.debtService.deleteDebt(id).subscribe(result => {
         alert('Deletado com sucesso!');
+        this.getDebts();
       });
     }
   }

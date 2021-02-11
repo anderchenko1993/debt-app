@@ -53,18 +53,23 @@ export class DebtComponent implements OnInit {
     });
   }
 
-  onSubmit() {
+  async onSubmit() {
     const { id, name } = this.users.find((user: any) => user.id == this.debt.usuario.id);
     
     this.debt.usuario = { id, name };
 
     if(!this.debt._id) {
-      this.debtService.saveDebt(this.debt).subscribe(result => {
+      await this.debtService.saveDebt(this.debt).subscribe(result => {
         alert('Cadastrado com sucesso!');
+
+        if(confirm('Deseja cadastrar uma nova dívida?')) 
+          location.reload();
+        else 
+          this.router.navigate(['']);
       });
     }
     else {
-      this.debtService.updateDebt(this.debt).subscribe(result => {
+      await this.debtService.updateDebt(this.debt).subscribe(result => {
         alert('Atualizado com sucesso!');
         this.router.navigate(['']);
       });
