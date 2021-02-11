@@ -7,27 +7,26 @@ import { API_BACK } from '../appsettings';
   providedIn: 'root'
 })
 export class DebtService {
-  
 
   constructor(private http: HttpClient) { }
 
-  list(): Observable<any> {
+  getDebts(): Observable<any> {
     return this.http.get(`${API_BACK}/debts`);
   }
 
-  show(id: number): Observable<any> {
+  getDebt(id: number): Observable<any> {
     return this.http.get(`${API_BACK}/debts/${id}`);
   }
 
-  save(data: any): Observable<any> {
+  saveDebt(data: any): Observable<any> {
     return this.http.post(`${API_BACK}/debts`, data);
   }
 
-  update(data: any): Observable<any> {
+  updateDebt(data: any): Observable<any> {
     return this.http.put(`${API_BACK}/debts/${data._id}`, data);
   }
 
-  delete(id: number): Observable<any> {
+  deleteDebt(id: number): Observable<any> {
     return this.http.delete(`${API_BACK}/debts/${id}`);
   }
 

@@ -1,7 +1,14 @@
-table {
-    width: 45%;
-    margin-top: 20px;
+h3 {
+    margin-bottom: 20px;
+    float: left;
+}
+
+a {
     float: right;
+}
+
+a i {
+    font-size: 18px;
 }
 
 table thead {
@@ -9,13 +16,21 @@ table thead {
     color: white;
 }
 
+table tbody {
+    font-size: 20px;
+}
+
 table tbody tr:nth-child(odd) {
     background-color: white;
- }
+}
+
+table tbody td {
+    border: none;
+}
 
 table tbody i {
-    /* color: #1976d2; */
-    font-size: 18px;
+    font-size: 23px;
+    display: contents;
     cursor: pointer;
 }
 

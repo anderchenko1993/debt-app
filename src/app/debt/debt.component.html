@@ -1,3 +1,5 @@
+<h3>{{ title }}</h3>
+
 <div class="jumbotron">
 
   <form #form="ngForm" (submit)="onSubmit()" autocomplete="off">
@@ -28,10 +30,9 @@
           <div class="validation-error" *ngIf="data.touched && !data.valid">Data é obrigatório.</div>
         </div>
 
-        <button type="submit" [disabled]="form.invalid" class="btn btn-primary btn-block">SALVAR</button>
+        <button type="submit" [disabled]="form.invalid" class="btn btn-primary">SALVAR</button>
   </form>
-
-  <app-debt-list></app-debt-list>
-
 </div>
+
+<a [routerLink]="['/']" class="btn btn-primary float-right">VOLTAR</a> 
 

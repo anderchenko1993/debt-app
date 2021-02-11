@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 import { UserService } from './../services/user.service';
 import { DebtService } from './../services/debt.service';
 import { Debt } from './../models/debt.model';
-import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-debt',
@@ -12,21 +13,38 @@ import { NgForm } from '@angular/forms';
 })
 export class DebtComponent implements OnInit {
 
-  public users: any;
-  public debt: Debt;
+  title: string;
+  users: any;
+  debt: Debt;
 
-  constructor(private userService: UserService, private debtService: DebtService) { 
+  constructor(
+    private userService: UserService, 
+    private debtService: DebtService, 
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private datePipe: DatePipe) {
+
+    this.title = "Cadastrar dívida";
+
     this.debt = {
       _id: null,
       usuario: { id: '', name: '' },
       motivo: '',
       data: '',
       valor: '', 
-    };
+    } ;
   }
 
-  ngOnInit(): void { 
-    this.getUsers() 
+  ngOnInit(): void {  
+    this.activatedRoute.params.subscribe(params => {
+      this.debtService.getDebt(params['id']).subscribe(data => {
+        this.debt = data;
+        this.debt.data = this.datePipe.transform(this.debt.data, 'yyyy-MM-dd', 'UTC');
+        this.title = "Editar dívida";
+      });
+    });
+    
+    this.getUsers();
   }
 
   async getUsers() {
@@ -40,9 +58,17 @@ export class DebtComponent implements OnInit {
     
     this.debt.usuario = { id, name };
 
-    this.debtService.save(this.debt).subscribe(result => {
-      alert('Cadastrado com sucesso!');
-    });
+    if(!this.debt._id) {
+      this.debtService.saveDebt(this.debt).subscribe(result => {
+        alert('Cadastrado com sucesso!');
+      });
+    }
+    else {
+      this.debtService.updateDebt(this.debt).subscribe(result => {
+        alert('Atualizado com sucesso!');
+        this.router.navigate(['']);
+      });
+    }
   }
 
 }

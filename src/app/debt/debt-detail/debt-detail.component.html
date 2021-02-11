@@ -17,10 +17,10 @@
         </tr>
         <tr>
             <td>
-                <b>Data:</b> {{ debt?.data | date: 'dd/MM/yyyy' }}
+                <b>Data:</b> {{ debt?.data | date: 'dd/MM/yyyy':'UTC' }}
             </td>
         </tr>
     </tbody>
   </table>
 
-  <a [routerLink]="['/debts']" class="btn btn-primary right">Voltar</a> 
+  <a [routerLink]="['/']" class="btn btn-primary right">Voltar</a> 

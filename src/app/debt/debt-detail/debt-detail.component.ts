@@ -20,7 +20,7 @@ export class DebtDetailComponent implements OnInit {
   }
 
   async getDebt(id: number) {
-    await this.debtService.show(id).subscribe(data => {
+    await this.debtService.getDebt(id).subscribe(data => {
       this.debt = data;
     });
   }

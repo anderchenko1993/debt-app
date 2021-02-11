@@ -7,6 +7,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CurrencyMaskModule } from "ng2-currency-mask";
+import { DatePipe } from "@angular/common";
 
 import { DebtListComponent } from './debt/debt-list/debt-list.component';
 import { UserService } from './services/user.service';
@@ -31,6 +32,7 @@ import { DebtDetailComponent } from './debt/debt-detail/debt-detail.component';
   providers: [
     UserService,
     DebtService,
+    DatePipe,
   ],
   bootstrap: [AppComponent]
 })

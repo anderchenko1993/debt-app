@@ -6,8 +6,10 @@ import { DebtListComponent } from './debt/debt-list/debt-list.component';
 import { DebtDetailComponent } from './debt/debt-detail/debt-detail.component';
 
 const routes: Routes = [
-  { path: 'debts', component: DebtComponent },
-  { path: 'debt/view/:id', component: DebtDetailComponent },
+  { path: '', component: DebtListComponent },
+  { path: 'debts/add', component: DebtComponent },
+  { path: 'debts/:id/edit', component: DebtComponent },
+  { path: 'debts/:id', component: DebtDetailComponent },
 ];
 
 @NgModule({
