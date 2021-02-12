@@ -37,11 +37,8 @@ export class DebtComponent implements OnInit {
 
   ngOnInit(): void {  
     this.activatedRoute.params.subscribe(params => {
-      this.debtService.getDebt(params['id']).subscribe(data => {
-        this.debt = data;
-        this.debt.data = this.datePipe.transform(this.debt.data, 'yyyy-MM-dd', 'UTC');
-        this.title = "Editar dívida";
-      });
+      this.getDebt(params['id']);
+      this.title = "Editar dívida";     
     });
     
     this.getUsers();
@@ -50,6 +47,17 @@ export class DebtComponent implements OnInit {
   async getUsers() {
     await this.userService.getUsers().subscribe(data => {
       this.users = data;
+    }, error => {
+      alert(error.message);
+    });
+  }
+
+  async getDebt(id: number) {
+    await this.debtService.getDebt(id).subscribe(data => {
+      this.debt = data;
+      this.debt.data = this.datePipe.transform(this.debt.data, 'yyyy-MM-dd', 'UTC');      
+    }, error => {
+      alert(error.message);
     });
   }
 

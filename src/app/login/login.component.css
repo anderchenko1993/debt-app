@@ -1,0 +1,16 @@
+.center-block {
+    width:250px;
+    padding:10px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+
+h1 {
+    margin-bottom: 20px;
+}
+
+button {
+    width: 200px;
+}

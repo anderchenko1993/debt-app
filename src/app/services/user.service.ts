@@ -13,4 +13,5 @@ export class UserService {
   getUsers(): Observable<any> {
     return this.http.get(API_USERS);
   }
+
 }

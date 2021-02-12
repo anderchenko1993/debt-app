@@ -19,6 +19,8 @@ export class DebtListComponent implements OnInit {
   async getDebts() {
     await this.debtService.getDebts().subscribe(data => {
       this.debts = data;
+    }, error => {
+      alert(error.message);
     });
   }
 
@@ -27,12 +29,10 @@ export class DebtListComponent implements OnInit {
       await this.debtService.deleteDebt(id).subscribe(result => {
         alert('Deletado com sucesso!');
         this.getDebts();
+      }, error => {
+        alert(error.message);
       });
     }
-  }
-
-  refreshList() {
-
   }
 
 }

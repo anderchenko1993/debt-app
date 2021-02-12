@@ -18,11 +18,11 @@
       <tr *ngFor="let debt of debts">
         <td>{{ debt.usuario.name }}</td>
         <td>R${{ debt.valor | number }}</td>
-        <td [routerLink]="['/debts', debt._id]">
-          <i class="bi bi-eye-fill" title="Visualizar"></i>
+        <td>
+          <i [routerLink]="['/debts', debt._id]" class="bi bi-eye-fill" title="Visualizar"></i>
         </td>
-        <td [routerLink]="['debts', debt._id, 'edit']">
-          <i class="bi bi-pencil-fill" title="Editar"></i>
+        <td>
+          <i [routerLink]="['debts', debt._id, 'edit']" class="bi bi-pencil-fill" title="Editar"></i>
         </td>
         <td (click)="onDelete(debt._id)">
           <i class="bi bi-x-square-fill" title="Excluir"></i>

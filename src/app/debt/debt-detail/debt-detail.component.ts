@@ -22,6 +22,8 @@ export class DebtDetailComponent implements OnInit {
   async getDebt(id: number) {
     await this.debtService.getDebt(id).subscribe(data => {
       this.debt = data;
+    }, error => {
+      alert(error.message);
     });
   }
 
