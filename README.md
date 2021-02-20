@@ -1,27 +1,46 @@
 # DebtApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.4.
+Este projeto tem como objetivo o gerenciamento de dívidas e devedores.
 
-## Development server
+## Pré-requisitos
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Angular CLI versão 11.1.4
+- Nodejs
+- MongoDB
+- Git
+- Docker
+- IDE de desenvolvimento (exemplo: VsCode)
+- IDE de banco para consulta de dados (exemplo: Robo3T) 
 
-## Code scaffolding
+## Setup
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Versionamento
 
-## Build
+Para ter acesso ao código fonte do projeto é necessário efetuar o clone dos repositórios pelos links abaixo:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+**Repositório front-end:** https://github.com/anderchenko1993/debt-app
+**Repositório back-end:** https://github.com/anderchenko1993/debt-api
 
-## Running unit tests
+### Dependências
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+O front-end foi desenvolvido utilizando o Angular, e o back-end Nodejs. Ambos utilizam bibliotecas de terceiros, e será necessário baixar as suas dependências através do comando `npm install`.
 
-## Running end-to-end tests
+### Docker
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+O projeto faz uso do Docker para criar imagens prontas e serem utilizadas durante o desenvolvimento do produto.
 
-## Further help
+Neste projeto a única imagem que será utilizada será o do mongo. Para baixar a imagem do mongo é necessário executar o comando `docker pull mongo`, e logo em seguida:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+`docker run --name mongodb -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=<username> -e MONGO_INITDB_ROOT_PASSWORD=<password> mongo`.
+
+O nome da imagem criada se chama **mongodb**, e a porta que será utilizada para se conectar ao banco **27017**.
+
+## Uso
+
+### Front-end
+
+Execute o comando `ng serve` para subir o servidor do Angular. Navegue para `http://localhost:4200/`. 
+
+### Back-end
+
+Execute o comando `npm run dev` para subir o servidor do Nodejs. A URL principal onde contém os endpoints será `http://localhost:3001/debt-api/`.
