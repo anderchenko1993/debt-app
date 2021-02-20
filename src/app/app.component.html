@@ -1,21 +1,26 @@
-<!-- Toolbar -->
-<div class="toolbar" role="banner">
-  <span>App de gerenciamento de dívidas</span>
-  <div class="user-info" *ngIf="isLogged">
-    Olá, {{ user.name }}
-    <a class="btn btn-primary" [routerLink]="['/logout']">
-      Sair
-    </a>
+<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+  <a class="navbar-brand">Debt App</a>
+  <button class="navbar-toggler" type="button" (click)="toggleCollapsed()" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav" [ngClass]="{'collapse': collapsed, 'navbar-collapse': true}">
+      <ul class="navbar-nav" *ngIf="loggedIn">
+            <li>
+                <i class="nav-item">
+                    <a class="nav-link" [routerLink]="['/']">
+                        Home
+                    </a>
+                </i>
+            </li>           
+            <li class="nav-item">
+                <a class="nav-link btn-logout" [routerLink]="['/logout']">
+                    Sair
+                </a>
+            </li>                
+      </ul>
   </div>
-</div>
+</nav>
 
 <div class="content" role="main">
   <router-outlet></router-outlet>
 </div>
-
-  
-
-
-
-
-

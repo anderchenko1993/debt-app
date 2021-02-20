@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { CurrencyMaskModule } from "ng2-currency-mask";
 import { DatePipe } from "@angular/common";
 import { SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider } from "angularx-social-login";
+import { AuthGuard } from './auth/auth.guard'; 
 
 import { DebtListComponent } from './debt/debt-list/debt-list.component';
 import { UserService } from './services/user.service';
@@ -38,6 +39,7 @@ import { LogoutComponent } from './logout/logout.component';
   providers: [
     UserService,
     DebtService,
+    AuthGuard,
     DatePipe,
     {
       provide: 'SocialAuthServiceConfig',

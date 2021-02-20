@@ -33,16 +33,19 @@ p {
     font-weight: 600;
 }
 
-.toolbar span {
-    margin-left: 20px;
-    /* display: flex; */
-
+.navbar-brand {
+    color: #fff;
 }
 
-.toolbar .user-info {
-    float: right;
-    width: 200px;
-}
+.navbar-light .navbar-nav .nav-link {
+    color: #fff;
+    font-size: 15px;
+    font-style: normal;
+  }
+  
+  .btn-logout {
+    cursor: pointer;
+  }
 
 .content {
     margin: 82px auto 32px;

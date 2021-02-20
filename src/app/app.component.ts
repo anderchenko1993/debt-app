@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SocialAuthService } from "angularx-social-login";
+import { SocialAuthService, SocialUser } from "angularx-social-login";
 
 @Component({
   selector: 'app-root',
@@ -8,16 +8,23 @@ import { SocialAuthService } from "angularx-social-login";
 })
 export class AppComponent {
   title = 'debt-app';
-  isLogged: boolean = false;  
-  user: any;
+  user!: SocialUser;
+  loggedIn: boolean = false;
+  collapsed: boolean = true;
 
-  constructor(private authService: SocialAuthService) {     
-    this.authService.authState.subscribe((user: any) => {
-      if(user) {
-        this.isLogged = true;     
+  constructor(private authService: SocialAuthService) { }
+
+  ngOnInit() {
+    this.authService.initState.subscribe(() => {
+      this.authService.authState.subscribe((user) => {
         this.user = user;
-      }
-    });
+        this.loggedIn = (user != null);
+      });
+    }); 
+  }
+
+  toggleCollapsed(): void {
+    this.collapsed = !this.collapsed;
   }
 
 }

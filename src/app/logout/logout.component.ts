@@ -4,19 +4,20 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-logout',
-  template: `
-  `,
+  template: ``,
   styles: []
 })
 export class LogoutComponent implements OnInit {
 
-  constructor(private authService: SocialAuthService, private router: Router) { 
-    this.authService.signOut().then(() => {
-      this.router.navigate(['/login']);
-    });
-  }
+  constructor(private authService: SocialAuthService, private router: Router) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    localStorage.clear();
+    this.authService.initState.subscribe(() => {
+      this.authService.signOut().then(() => {
+        this.router.navigate(['/login']);   
+      });
+    });
   }
 
 }
