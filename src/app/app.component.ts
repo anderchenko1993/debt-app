@@ -8,7 +8,6 @@ import { SocialAuthService, SocialUser } from "angularx-social-login";
 })
 export class AppComponent {
   title = 'debt-app';
-  user!: SocialUser;
   loggedIn: boolean = false;
   collapsed: boolean = true;
 
@@ -17,7 +16,6 @@ export class AppComponent {
   ngOnInit() {
     this.authService.initState.subscribe(() => {
       this.authService.authState.subscribe((user) => {
-        this.user = user;
         this.loggedIn = (user != null);
       });
     }); 
